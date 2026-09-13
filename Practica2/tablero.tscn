@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cff3wr5ispey6"]
+
+[ext_resource type="Script" uid="uid://b2kohvt8rl283" path="res://tablero.gd" id="1_adh7g"]
+[ext_resource type="PackedScene" uid="uid://biktjj0hr0gh1" path="res://carta.tscn" id="2_6gsi4"]
+[ext_resource type="Texture2D" uid="uid://dqknqqjk46d4s" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (2).jpg" id="3_86wbs"]
+[ext_resource type="Texture2D" uid="uid://bkhusyhu16bok" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩.jpg" id="4_r55b2"]
+[ext_resource type="Texture2D" uid="uid://xwk4u56xqsi8" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (1).jpg" id="5_wmdfq"]
+[ext_resource type="Texture2D" uid="uid://bx7wc4h7urma4" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (3).jpg" id="6_60wgg"]
+[ext_resource type="Texture2D" uid="uid://c64ris6bgn515" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (4).jpg" id="7_p31jg"]
+[ext_resource type="Texture2D" uid="uid://cg5ajdlbx73w2" path="res://Animal Crossing Lily.jpg" id="8_6ect5"]
+[ext_resource type="Texture2D" uid="uid://nbc3yailn504" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (6).jpg" id="10_8bnr6"]
+[ext_resource type="Texture2D" uid="uid://ctx4mrukwurr0" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (7).jpg" id="11_u44ri"]
+[ext_resource type="Texture2D" uid="uid://c5026kh4gjsme" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (9).jpg" id="12_trhtd"]
+[ext_resource type="Texture2D" uid="uid://vbwyrqkluk3k" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (5).jpg" id="13_6ect5"]
+[ext_resource type="Texture2D" uid="uid://2w76a7nwy8uv" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (10).jpg" id="14_a76vr"]
+[ext_resource type="Texture2D" uid="uid://co1eg1sn0b80" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (11).jpg" id="14_klh3r"]
+[ext_resource type="Texture2D" uid="uid://bcmuagvikmnte" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (12).jpg" id="15_8bnr6"]
+[ext_resource type="Texture2D" uid="uid://d1vcrjrp3p4sc" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (13).jpg" id="16_u44ri"]
+[ext_resource type="Texture2D" uid="uid://ccxcfyw08wo5m" path="res://✮ ⋆ ˚｡𖦹 ⋆｡° ✩ (14).jpg" id="17_trhtd"]
+
+[node name="Tablero" type="Control" unique_id=832886899]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adh7g")
+card_scene = ExtResource("2_6gsi4")
+card_textures = Array[Texture2D]([ExtResource("5_wmdfq"), ExtResource("3_86wbs"), ExtResource("6_60wgg"), ExtResource("7_p31jg"), ExtResource("13_6ect5"), ExtResource("10_8bnr6"), ExtResource("11_u44ri"), ExtResource("12_trhtd"), ExtResource("14_a76vr"), ExtResource("14_klh3r"), ExtResource("15_8bnr6"), ExtResource("16_u44ri"), ExtResource("17_trhtd"), ExtResource("4_r55b2"), ExtResource("8_6ect5")])
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=659049328]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 6
+
+[node name="FlipTimer" type="Timer" parent="." unique_id=247032831]
+one_shot = true
