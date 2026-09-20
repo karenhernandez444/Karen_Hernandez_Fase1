@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://cq64bk2xmtfil"]
+
+[ext_resource type="Script" uid="uid://cgeqv22dht5ot" path="res://player.gd" id="1_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dq6acaowrg6y6" path="res://art2/elf_f_run_anim_f0.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bt5bk706l22mv" path="res://art2/elf_m_idle_anim_f3.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://balb7bwn474rc" path="res://art2/elf_m_hit_anim_f0.png" id="4_sweqy"]
+[ext_resource type="Texture2D" uid="uid://dndxm85qxui6p" path="res://art2/elf_f_idle_anim_f0.png" id="5_2hs0m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y57fk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sweqy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_sweqy")
+}],
+"loop": 1,
+"name": &"up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_2hs0m")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgy4n"]
+radius = 27.0
+height = 70.0
+
+[sub_resource type="Gradient" id="Gradient_sweqy"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s7rlf"]
+gradient = SubResource("Gradient_sweqy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 1)
+
+[node name="Player" type="Area2D" unique_id=111316503]
+position = Vector2(237, 510)
+script = ExtResource("1_sweqy")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1717907611]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_y57fk")
+animation = &"up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=427124633]
+shape = SubResource("CapsuleShape2D_jgy4n")
+
+[node name="shadow" type="Sprite2D" parent="." unique_id=1914304871]
+modulate = Color(0.99215686, 0.99215686, 0.99215686, 0.40392157)
+position = Vector2(0, 40)
+texture = SubResource("GradientTexture2D_s7rlf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

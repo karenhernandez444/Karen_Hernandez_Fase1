@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://besbl78lxxssc"]
+
+[ext_resource type="Script" uid="uid://dx6vvu7vtpr32" path="res://mob.gd" id="1_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://dxebkqnsmyc1b" path="res://art2/swampy_anim_f0.png" id="2_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://bs4lqds6xrkbq" path="res://art2/lizard_m_run_anim_f0.png" id="2_7ulmv"]
+[ext_resource type="Texture2D" uid="uid://hx7afwptn5br" path="res://art2/skelet_run_anim_f0.png" id="2_ieysi"]
+[ext_resource type="Texture2D" uid="uid://u3e18ia5ewa7" path="res://art2/skelet_run_anim_f1.png" id="3_cixyi"]
+[ext_resource type="Texture2D" uid="uid://bxsdingagi0x0" path="res://art2/swampy_anim_f2.png" id="3_gfurk"]
+[ext_resource type="Texture2D" uid="uid://bpnh0v1woxkcd" path="res://art2/lizard_m_run_anim_f1.png" id="3_pcqmr"]
+[ext_resource type="Texture2D" uid="uid://cxcx7hvnbvlys" path="res://art2/big_demon_run_anim_f0.png" id="4_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://ci3dmhbb1mycg" path="res://art2/big_demon_run_anim_f1.png" id="5_gfurk"]
+[ext_resource type="Texture2D" uid="uid://comv2gu6j4w2x" path="res://art2/chort_run_anim_f0.png" id="6_1qmh0"]
+[ext_resource type="Texture2D" uid="uid://devy5ap1fpwty" path="res://art2/chort_run_anim_f1.png" id="7_gfurk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3h0py"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7ulmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pcqmr")
+}],
+"loop": 1,
+"name": &"cocodrilo",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ieysi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cixyi")
+}],
+"loop": 1,
+"name": &"esqueleto",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_1qmh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gfurk")
+}],
+"loop": 1,
+"name": &"grandote",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1qmh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gfurk")
+}],
+"loop": 1,
+"name": &"monstrito",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1qmh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_gfurk")
+}],
+"loop": 1,
+"name": &"slime",
+"speed": 3.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1qmh0"]
+radius = 39.0
+height = 78.0
+
+[node name="Mob" type="RigidBody2D" unique_id=1969402651]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource("1_1qmh0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1825201583 groups=["mobs"]]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_3h0py")
+animation = &"grandote"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=918754534]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_1qmh0")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=787502849]
+rect = Rect2(-50, -57, 100, 114)
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
